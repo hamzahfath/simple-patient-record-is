@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="text-align: center;" slot="align-items"></h1>
+<div>
+    <table style="align-items: center;align-self: flex-end;">
+        <tr>
+            <td>timestamp</td>
+            <td> {{ patientrecords.timestamp }}</td>
+        </tr>
+        <tr>
+            <td> Nama </td>
+            <td> {{ patientrecords.patient_name }}</td>
+        </tr>
+        <tr>
+            <td> Diagnosis </td>
+            <td> {{ patientrecords.diagnose }}</td>
+        </tr>  
+        
+        <tr>
+            <td> Prescription </td>
+            <td> {{ patientrecords.prescription }}</td>
+        </tr>  
+
+        <tr>
+            <td> Diagnosis </td>
+            <td> {{ patientrecords.follow_up }}</td>
+        </tr>  
+
+        <tr>
+            <td> Catatan Tambahan </td>
+            <td> {{ patientrecords.notes }}</td>
+        </tr>  
+    </table>
+    
+</div>
+
+{% endblock %}

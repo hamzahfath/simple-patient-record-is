@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="text-align: center;" slot="align-items"></h1>
+<div>
+    <table style="align-items: center;align-self: flex-end;">
+        <tr>
+            <td>Name</td>
+            <td> {{ patientprofile.patient_name }}</td>
+        </tr>
+        <tr>
+            <td> Alamat </td>
+            <td> {{ patientprofile.patient_address }}</td>
+        </tr>
+        <tr>
+            <td> Golongan Darah </td>
+            <td> {{ patientprofile.Patient_bloodtype }}</td>
+        </tr>      
+    </table>
+    
+</div>
+
+<div>
+    <h2>Medical Record History</h2>
+    <hr>
+    {% if patient_records %}
+    <ul>
+        {% for record in patient_records %}
+        <h3>On {{ record.timestamp }}</h3>
+        <p><b>Diagnose:</b> {{ record.diagnose }}</p>
+        <p><b>Notes:</b> {{ record.notes }}</p>
+        <p>Prescribed medicines:</p>
+        <ul>
+        {% for medicine in record.prescriptions %}
+            <li>{{ medicine.medicine_name }}</li>
+        {% endfor %}
+        </ul>
+        <hr>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>There are no record to Show</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

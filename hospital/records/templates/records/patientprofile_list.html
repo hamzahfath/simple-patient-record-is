@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="text-align: center;" slot="align-items">Patient List</h1>
+{% for patient in patients %}
+
+<a href="{% url 'records:patient_detail' pk=patient.pk %}">{{ patient.patient_name }}</a>
+<br>
+
+
+{% endfor %}
+
+
+{% endblock %}
